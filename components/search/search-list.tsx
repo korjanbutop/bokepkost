@@ -15,12 +15,8 @@ const SearchCardList = async ({
         <div className="flex flex-col">
             {banner && (
                 <div className="my-6 mb-8 text-center">
-                    <h1 className="text-xs md:text-sm font-bold text-gray-600 uppercase tracking-wider">
-                        Search Results
-                    </h1>
                     <h1 className="text-sm md:text-xl uppercase">
-                        Found {data.result.length} videos for &apos;{query}
-                        &apos;
+                        {query} Porn Videos
                     </h1>
                 </div>
             )}
