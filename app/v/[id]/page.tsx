@@ -1,19 +1,7 @@
-import {
-    CalendarIcon,
-    CubeIcon,
-    DownloadIcon,
-    LapTimerIcon,
-    RocketIcon,
-    Share1Icon,
-} from "@radix-ui/react-icons";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Metadata, ResolvingMetadata } from "next";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import { humanDuration, humanSize } from "@/lib/utils";
 
-import { Button } from "@/components/ui/button";
-import CopyButton from "@/components/copy-button";
-import LikeButton from "@/components/like-button";
 import Link from "next/link";
 import MessageBox from "@/components/message-box";
 import React from "react";
@@ -57,11 +45,11 @@ export async function generateMetadata(
             title,
             description,
             images: [...previousOgImages, image],
-            url: `/v/${file.filecode}`,
+            url: `/v/${file.filecode}#${file.title}`,
             type: `article`,
         },
         alternates: {
-            canonical: `/v/${file.filecode}`,
+            canonical: `/v/${file.filecode}#${file.title}`,
         },
     };
 }
@@ -87,7 +75,7 @@ const jsonLd = {
         name: `${file.title} - ${SITENAME}`,
         thumbnailUrl: file.splash_img,
         description: `${file.title} di ${SITENAME} Video Bokep Indo Jepang Jav Barat Simontok Viral Terbaru Bocil Ngentot Jilbab Smp Mama Sma`,
-        url: `https://bokepkost.pages.dev/v/${file.filecode}`,
+        url: `https://bokepkost.pages.dev/v/${file.filecode}#${file.title}`,
         embedUrl: `https://${upstream}/e/${file.filecode}`,
         uploadDate: new Date(
             file.uploaded + ".000Z"
@@ -97,7 +85,7 @@ const jsonLd = {
                 userInteractionCount: `${file.views}`,
             interactionType: {
                 '@type': `WatchAction`,
-                target: `https://bokepkost.pages.dev/v/${file.filecode}`
+                target: `https://bokepkost.pages.dev/v/${file.filecode}#${file.title}`
             }  
         }
         }
@@ -107,7 +95,7 @@ const jsonLd = {
         headline: `${file.title} - ${SITENAME}`,
         image: file.splash_img,
         description: `${file.title} di ${SITENAME} Video Bokep Indo Jepang Jav Barat Simontok Viral Terbaru Bocil Ngentot Jilbab Smp Mama Sma`,
-        url: `https://bokepkost.pages.dev/v/${file.filecode}`,
+        url: `https://bokepkost.pages.dev/v/${file.filecode}#${file.title}`,
         datePublished: new Date(
             file.uploaded + ".000Z"
         ).toISOString(),
@@ -125,7 +113,7 @@ const jsonLd = {
                 userInteractionCount: `${file.views}`,
             interactionType: {
                 '@type': `ReadAction`,
-                target: `https://bokepkost.pages.dev/v/${file.filecode}`
+                target: `https://bokepkost.pages.dev/v/${file.filecode}#${file.title}`
             }  
         }
         }
@@ -173,49 +161,7 @@ const jsonLd = {
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
-         <p>Video bokep indo terbaru viral {file.title} di {SITENAME} Video Bokep Indo Jepang Jav Barat Simontok Viral Terbaru Bocil Ngentot Jilbab Smp Mama Sma korea china tante live paksa ngentot abg cewek pijat pelajar Hijab Abg Colmek Film Tante Hot Twitter Asia Download Live stw situs indonesia nonton link sd crot playbokep simontok bokepin montok baru perawan anak kecil telegram selingkuh ojol cantik gay vidio lokal artis pelajar janda streaming jepang barat korea japan jav cina japanese china rusia arab india thailand hd anime hentai bokepind gudang avtub pijat sotwe rumah pemerkosaan inggris xpanas pure tobrut vcs ngintip binor remaja yandex update perselingkuhan wiki raja full com porno indoh</p>
-                   <div className="grid grid-flow-row lg:grid-flow-col">
-                        <Table>
-                            <TableBody>
-                                <TableRow>
-                                    <TableCell className="flex gap-2 items-center">
-                                        <LapTimerIcon className="size-4 md:size-5"></LapTimerIcon>
-                                        Duration
-                                    </TableCell>
-                                    <TableCell>
-                                        {humanDuration(file.length)}
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell className="flex gap-2 items-center">
-                                        <RocketIcon className="size-4 md:size-5"></RocketIcon>
-                                        Views
-                                    </TableCell>
-                                    <TableCell>{file.views}</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell className="flex gap-2 items-center">
-                                        <CubeIcon className="size-4 md:size-5"></CubeIcon>
-                                        Size
-                                    </TableCell>
-                                    <TableCell>
-                                        {humanSize(file.size)}
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell className="flex gap-2 items-center">
-                                        <CalendarIcon className="size-4 md:size-5"></CalendarIcon>
-                                        Uploaded
-                                    </TableCell>
-                                    <TableCell>
-                                        {new Date(
-                                            file.uploaded + ".000Z"
-                                        ).toLocaleString()}
-                                    </TableCell>
-                                </TableRow>
-                            </TableBody>
-                        </Table>
-                    </div>
+         <p>Video bokep indo terbaru viral <a href='https://bokepkost.pages.dev/v/${file.filecode}#${file.title}'>{file.title}</a> di {SITENAME} Video Bokep Indo Jepang Jav Barat Simontok Viral Terbaru Bocil Ngentot Jilbab Smp Mama Sma korea china tante live paksa ngentot abg cewek pijat pelajar Hijab Abg Colmek Film Tante Hot Twitter Asia Download Live stw situs indonesia nonton link sd crot playbokep simontok bokepin montok baru perawan anak kecil telegram selingkuh ojol cantik gay vidio lokal artis pelajar janda streaming jepang barat korea japan jav cina japanese china rusia arab india thailand hd anime hentai bokepind gudang avtub pijat sotwe rumah pemerkosaan inggris xpanas pure tobrut vcs ngintip binor remaja yandex update perselingkuhan wiki raja full com porno indoh</p>
                 </CardContent>
             </Card>
             <h2 className="text-2xl font-bold text-center my-4">
