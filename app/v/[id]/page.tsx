@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Metadata, ResolvingMetadata } from "next";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import Script from "next/script";
 
 import Link from "next/link";
 import MessageBox from "@/components/message-box";
@@ -27,7 +28,7 @@ export async function generateMetadata(
     }
 
     const file = data.result[0];
-    const title = `${file.title} - ${SITENAME}`;
+    const title = `${file.title}`;
     const description = `${file.title} di ${SITENAME} Video Bokep Indo Jepang Jav Barat Simontok Viral Terbaru Bocil Ngentot Jilbab Smp Mama Sma`;
     const image = file.splash_img;
     const previousOgImages = (await parent).openGraph?.images || [];
@@ -45,11 +46,11 @@ export async function generateMetadata(
             title,
             description,
             images: [...previousOgImages, image],
-            url: `/v/${file.filecode}#${file.title}`,
+            url: `/v/${file.filecode}`,
             type: `article`,
         },
         alternates: {
-            canonical: `/v/${file.filecode}#${file.title}`,
+            canonical: `/v/${file.filecode}`,
         },
     };
 }
@@ -72,11 +73,11 @@ export default async function Video({ params }: PageProps) {
 const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'VideoObject',
-        name: `${file.title} - ${SITENAME}`,
+        name: `${file.title}`,
         thumbnailUrl: file.splash_img,
         description: `${file.title} di ${SITENAME} Video Bokep Indo Jepang Jav Barat Simontok Viral Terbaru Bocil Ngentot Jilbab Smp Mama Sma`,
-        url: `https://bokepkost.pages.dev/v/${file.filecode}#${file.title}`,
-        embedUrl: `https://${upstream}/e/${file.filecode}`,
+        url: `https://bokepkost.pages.dev/v/${file.filecode}`,
+        embedUrl: `https://doodstream.com/e/${file.filecode}`,
         uploadDate: new Date(
             file.uploaded + ".000Z"
         ).toISOString(),
@@ -85,17 +86,17 @@ const jsonLd = {
                 userInteractionCount: `${file.views}`,
             interactionType: {
                 '@type': `WatchAction`,
-                target: `https://bokepkost.pages.dev/v/${file.filecode}#${file.title}`
+                target: `https://bokepkost.pages.dev/v/${file.filecode}`
             }  
         }
         }
         const jsonLd2 = {
         '@context': 'https://schema.org',
         '@type': 'Article',
-        headline: `${file.title} - ${SITENAME}`,
+        headline: `${file.title}`,
         image: file.splash_img,
         description: `${file.title} di ${SITENAME} Video Bokep Indo Jepang Jav Barat Simontok Viral Terbaru Bocil Ngentot Jilbab Smp Mama Sma`,
-        url: `https://bokepkost.pages.dev/v/${file.filecode}#${file.title}`,
+        url: `https://bokepkost.pages.dev/v/${file.filecode}`,
         datePublished: new Date(
             file.uploaded + ".000Z"
         ).toISOString(),
@@ -113,14 +114,14 @@ const jsonLd = {
                 userInteractionCount: `${file.views}`,
             interactionType: {
                 '@type': `ReadAction`,
-                target: `https://bokepkost.pages.dev/v/${file.filecode}#${file.title}`
+                target: `https://bokepkost.pages.dev/v/${file.filecode}`
             }  
         }
         }
         const jsonLd3 = {
             '@context': 'https://schema.org', 
             '@type': 'Book', 
-            'name': `${file.title} - ${SITENAME}`, 
+            'name': `${file.title}`, 
             'aggregateRating': {
             '@type': 'AggregateRating',	
                 'ratingValue': '5',	
@@ -148,7 +149,7 @@ const jsonLd = {
         </section>
             <iframe
                 className="w-full h-[30vh] md:h-[55vh] lg:h-[70vh]"
-                src={`https://${upstream}/e/${file.filecode}`}
+                src={`https://doodstream.com/e/${file.filecode}`}
                 scrolling="no"
                 title={file.title}
                 frameBorder={0}
@@ -168,6 +169,7 @@ const jsonLd = {
                 Related Video {file.title}
             </h2>
             <SearchCardList query={file.title.split(" ")[2]} />
+<Script src="https://js.juicyads.com/jp.php?c=947403z2v256s2x2w264x294&u=http%3A%2F%2Fwww.juicyads.rocks"/>
         </div>
     );
 }
