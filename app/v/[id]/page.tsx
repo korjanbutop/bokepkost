@@ -58,7 +58,7 @@ export async function generateMetadata(
             title,
             description,
             images: [...previousOgImages, image],
-            url: `/v/${file.filecode}`,
+            url: `/v/${file.filecode}#${file.title}`,
             type: `article`,
         },
         alternates: {
